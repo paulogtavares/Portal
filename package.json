@@ -1,0 +1,13 @@
+{
+  "name": "portal-plataforma",
+  "version": "1.0.0-alpha.3",
+  "buildDate": "2026-10-06",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}

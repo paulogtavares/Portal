@@ -1,0 +1,18 @@
+Portal da plataforma v1.0.0-alpha.3 (2026-10-06)
+
+O portal faz o login, é dono dos usuários e perfis, monta o menu dos módulos e repassa cada acesso ao módulo
+certo com o token da plataforma. Os módulos rodam com AUTH_MODO=portal e o MESMO SEGREDO_PLATAFORMA.
+
+Uso local (Windows): duplo clique em iniciar.bat. Mac/Linux: ./iniciar.sh. Exige Node.js 24.
+Na primeira vez o iniciar cria o .env (modo de teste: admin@portal.teste / teste123, segredo gerado na hora) e abre
+http://localhost:3030. Copie o SEGREDO_PLATAFORMA do .env para os módulos e inicie cada um com AUTH_MODO=portal
+(Cronogramas na 3232, Orçamentos na 3333, como em MODULOS).
+
+Importar os usuários do Cronogramas (mesmos ids e senhas):
+  node exportar-cronogramas.js --banco <DATABASE_URL do Cronogramas>
+  node exportar-cronogramas.js --pasta <pasta dados do Cronogramas>   (feche o Cronogramas antes)
+  depois: portal > Administração > Importar do Cronogramas (confira a prévia, importe e apague o arquivo).
+
+Nuvem (Railway): NODE_ENV=production, DATABASE_URL, SEGREDO_PLATAFORMA (variável compartilhada do projeto),
+MODULOS (endereços internos *.railway.internal), ADMIN_EMAIL, ADMIN_SENHA. Comando: node server.js.
+Veja a seção "Atenção ao atualizar" do CHANGELOG.md.
